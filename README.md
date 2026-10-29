@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=200&auto=format&fit=crop" width="80" alt="PixelSlice Pro Logo" style="border-radius: 16px;" />
+  <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=200&auto=format&fit=crop" width="80" alt="Logo" style="border-radius: 16px;" />
 
   # ⚡ PixelSlice Pro
   ### **100% Free, Browser-Based Sprite Sheet Cutter, Polygon Lasso Cropper & Animation Previewer**
@@ -19,35 +19,27 @@
 ---
 
 ## 🚀 Overview
-
-**PixelSlice Pro** is a high-performance web utility built specifically for 2D game developers, digital artists, and asset creators. Whether you are slicing texture atlases for **Godot, Unity, or custom engines**, PixelSlice Pro lets you extract individual frames, clean up transparency boundaries, and preview sprite animations instantly right inside your web browser.
+**PixelSlice Pro** is a high-performance web utility built for 2D game developers and digital artists. Extract frames from texture atlases instantly right inside your browser for Godot, Unity, or custom engines.
 
 ---
 
 ## ✨ Key Features
-
-*   🤖 **Intelligent Auto-Slicer:** Automatically detects sprite boundaries using adjustable tuning parameters (*Min Sprite Size, Proximity Gap, and Padding Margin*).
-*   ✂️ **Advanced Manual Cropping:** Take full control with 8-handle box cropping, Click-to-Point Polygon Lasso, and Freehand Pen masks.
-*   🎬 **Live Animation Previewer:** Test your extracted sprite sequence in real-time with customizable **FPS control** and smooth looping.
-*   📦 **Instant ZIP Packaging:** Export your entire frame sequence as a clean, sequentially ordered flat `.zip` archive using **JSZip** with EXIF metadata stripped.
-*   🔒 **100% Client-Side Privacy:** Your images never leave your machine. Processed entirely via HTML5 Canvas API in your browser storage.
-*   🌙 **Dark / Light Theme:** Sleek, responsive modern UI built with Tailwind CSS supporting seamless theme toggling.
+* 🤖 **Auto-Slicer:** Detects sprite bounds with adjustable parameters.
+* ✂️ **Manual Cropping:** Box crop, Polygon Lasso, and Freehand Pen masks.
+* 🎬 **Animation Previewer:** Test frame sequences with adjustable FPS.
+* 📦 **ZIP Export:** Clean flat `.zip` download using JSZip with EXIF metadata stripped.
+* 🔒 **100% Privacy:** Local browser processing with zero server uploads.
 
 ---
 
-## 🛠️ Tech Stack
-
-*   **Core:** Vanilla JavaScript (ES6+), HTML5 Canvas API
-*   **Styling:** Tailwind CSS (via CDN)
-*   **Compression & Export:** JSZip (`3.10.1`)
-*   **Typography:** Inter (Google Fonts)
+## 🚀 Quick Start
+1. Clone the repo: `git clone https://github.com/KernelVoltage/PixelSlice-Pro.git`
+2. Open `index.html` in any modern web browser.
 
 ---
 
-## 🚀 Getting Started Locally
+## 👤 Author
+Developed with ❤️ by **KernelVoltage** ([@KernelVoltage](https://github.com/KernelVoltage)).
 
-Since PixelSlice Pro is fully client-side and requires zero backend compilation, you can run it instantly:
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/KernelVoltage/PixelSlice-Pro.git](https://github.com/KernelVoltage/PixelSlice-Pro.git)
+## 📄 License
+Distributed under the **MIT License**.
