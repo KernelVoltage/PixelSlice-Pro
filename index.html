@@ -1,0 +1,436 @@
+<!-- Document type declaration for standard modern HTML5 rendering -->
+<!DOCTYPE html>
+<!-- Root HTML element with English language setting and default light mode theme class -->
+<html lang="en" class="light">
+<head>
+  <!-- Universal character set encoding declaration -->
+  <meta charset="UTF-8">
+  <!-- Mobile viewport optimizations for smooth touch interaction and cross-device responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Keyword-rich, primary browser title optimized for search engine ranking -->
+  <title>PixelSlice Pro | Free Browser-Based Sprite Sheet Cutter & Animation Previewer</title>
+
+  <!-- Essential Search Engine Optimization Meta Tags -->
+  <meta name="description" content="PixelSlice Pro is a 100% free, browser-based sprite sheet cutter, polygon lasso cropper, and animation previewer. Developed by KernelVoltage. Process images locally with zero server uploads, zero logins, and zero ads.">
+  <meta name="keywords" content="sprite sheet cutter, sprite slicer, online sprite cutter, polygon lasso cropper, free sprite cutter, sprite animation previewer, texture atlas extractor, game dev tools, KernelVoltage, pixelslice pro, godot tools, 2d game development">
+  <meta name="author" content="KernelVoltage">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="application-name" content="PixelSlice Pro">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Canonical URL to prevent duplicate content indexing issues -->
+  <link rel="canonical" href="https://pixelslicepro.com/">
+
+  <!-- Open Graph (OG) Meta Tags for Social Media Sharing, Discord, and Developer Forums -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PixelSlice Pro">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://pixelslicepro.com/">
+  <meta property="og:title" content="PixelSlice Pro | Free Browser-Based Sprite Sheet Cutter">
+  <meta property="og:description" content="Slice sprite sheets instantly with high-precision auto detection, 8-handle box cropping, and freehand polygon lasso masks. Developed by KernelVoltage. 100% local browser privacy with zero uploads.">
+  <meta property="og:image" content="https://pixelslicepro.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card Meta Tags for Enhanced Link Previews -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@KernelVoltage">
+  <meta name="twitter:creator" content="@KernelVoltage">
+  <meta name="twitter:url" content="https://pixelslicepro.com/">
+  <meta name="twitter:title" content="PixelSlice Pro | Free Browser-Based Sprite Sheet Cutter">
+  <meta name="twitter:description" content="Extract sprite sequences instantly in your browser. Features auto-slicing, polygon lasso cropping, and live animation previewing with zero server uploads. Developed by KernelVoltage.">
+  <meta name="twitter:image" content="https://pixelslicepro.com/twitter-card.png">
+
+  <!-- JSON-LD Structured Data for Enhanced Rich Snippets & SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PixelSlice Pro",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browser": "Requires JavaScript. Requires HTML5 canvas.",
+    "description": "Free browser-based sprite sheet cutter, polygon lasso cropper, and animation previewer with 100% local processing and zero server uploads.",
+    "url": "https://pixelslicepro.com/",
+    "author": {
+      "@type": "Person",
+      "name": "KernelVoltage",
+      "url": "https://github.com/KernelVoltage"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Inline Vector SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='3' stroke-dasharray='4 2'/><path d='M9 3v18M15 3v18M3 9h18M3 15h18' stroke-width='1.5'/><path d='M12 8l4 4-4 4' stroke-width='2'/></svg>">
+
+  <!-- Tailwind CSS CDN for modern utility-first layout styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- JSZip library CDN for creating in-memory flat ZIP exports -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <!-- Google Fonts performance preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Load Inter font family for typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS Configuration script enabling class-based dark mode and custom brand palette -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' } }
+        }
+      }
+    }
+  </script>
+
+  <!-- External Custom Stylesheet link -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- Main body container with flex layout, responsive dark/light mode backgrounds, and full height viewport -->
+<body class="min-h-screen flex flex-col justify-between bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-blue-100 selection:text-blue-600 m-0 p-0 overflow-x-hidden">
+
+  <!-- Application Header and Navigation Bar (Clutter-free top bar with zero legal links) -->
+  <header class="w-full border-b border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50">
+    <!-- Centered header content container -->
+    <div class="max-w-[1200px] w-full mx-auto px-3 sm:px-6 h-auto sm:h-18 flex flex-col sm:flex-row items-center justify-between py-3 gap-3">
+      
+      <!-- Logo, brand title, and mobile toggle section -->
+      <div class="flex items-center justify-between w-full sm:w-auto">
+        <!-- Main branding block -->
+        <a href="index.html" class="flex items-center space-x-3 group" title="PixelSlice Pro Home">
+          <!-- Icon wrapper with blue gradient -->
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-blue-500 to-brand-700 flex items-center justify-center shadow-md shadow-blue-500/20 text-white shrink-0 group-hover:scale-105 transition-all">
+            <!-- App Icon SVG -->
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3" stroke-dasharray="4 2"/>
+              <path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke-width="1.5"/>
+              <path d="M12 8l4 4-4 4" stroke-width="2"/>
+            </svg>
+          </div>
+          <!-- Title text stack -->
+          <div>
+            <h1 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg tracking-tight leading-none">PixelSlice Pro</h1>
+            <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Free Sprite Sheet Utility</p>
+          </div>
+        </a>
+
+        <!-- Mobile screen controls group (Theme toggle + GitHub icon) -->
+        <div class="flex items-center space-x-2 sm:hidden">
+          <!-- GitHub Link Icon Button (Mobile) -->
+          <a href="https://github.com/KernelVoltage/PixelSlice-Pro" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-white transition-all shadow-sm" title="View Source on GitHub" aria-label="GitHub Repository">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <!-- Mobile screen theme toggle button -->
+          <button id="btn-theme-toggle-mobile" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-all shadow-sm" title="Toggle Theme" aria-label="Toggle Theme">
+            <!-- Sun icon for light mode toggle -->
+            <svg id="sun-icon-mobile" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <!-- Moon icon for dark mode toggle -->
+            <svg id="moon-icon-mobile" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mode switches and desktop theme button / GitHub icon -->
+      <div class="flex items-center justify-center space-x-2 w-full sm:w-auto">
+        <!-- Mode switch toolbar (Hidden initially until image load) -->
+        <div id="header-mode-switchers" class="hidden items-center bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl shadow-inner space-x-1 shrink-0 flex-wrap gap-y-1">
+          <!-- Auto Slicer tool trigger button -->
+          <button id="btn-mode-auto" class="px-3 py-2 rounded-xl bg-brand-600 text-white text-xs font-bold shadow-md transition-all flex items-center space-x-1.5">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <span>Auto Slicer</span>
+          </button>
+          <!-- Manual Cropper mode trigger button -->
+          <button id="btn-mode-manual" class="px-3 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white text-xs font-bold transition-all flex items-center space-x-1.5">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+            <span>Manual Cropper</span>
+          </button>
+        </div>
+
+        <div class="hidden sm:flex items-center space-x-2">
+          <!-- GitHub Link Icon Button (Desktop Top Right) -->
+          <a href="https://github.com/KernelVoltage/PixelSlice-Pro" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-white transition-all shadow-sm shrink-0 flex items-center justify-center" title="View Source on GitHub" aria-label="GitHub Repository">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <!-- Desktop screen theme toggle button -->
+          <button id="btn-theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-all shadow-sm shrink-0" title="Toggle Theme" aria-label="Toggle Theme">
+            <!-- Sun icon graphic for light theme switch -->
+            <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <!-- Moon icon graphic for dark theme switch -->
+            <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Body Content View -->
+  <main class="flex-1 max-w-[1200px] w-full mx-auto px-3 sm:px-6 py-6 sm:py-8 flex flex-col justify-start items-center">
+    
+    <!-- Initial File Upload State Component (Clean and uncluttered layout) -->
+    <div id="upload-state" class="w-full max-w-[640px] my-auto transition-all duration-300 py-12">
+      
+      <!-- Interactive drag-and-drop file upload target -->
+      <div 
+        id="drop-zone"
+        class="group relative border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-brand-600 bg-white dark:bg-slate-900 rounded-[24px] p-6 sm:p-14 text-center cursor-pointer transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-blue-500/5 min-h-[300px] flex flex-col items-center justify-center"
+      >
+        <!-- Hidden file input node for native file picker activation -->
+        <input type="file" id="file-input" accept="image/png, image/webp" class="hidden" />
+
+        <!-- Upload icon visual container -->
+        <div class="mx-auto w-16 h-16 sm:w-18 sm:h-18 mb-4 rounded-2xl bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:scale-110 flex items-center justify-center transition-all duration-300 p-4 text-brand-600 group-hover:text-white">
+          <svg class="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-300 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+          </svg>
+        </div>
+
+        <!-- Call to action title text -->
+        <h2 class="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
+          Drop your transparent sprite sheet here
+        </h2>
+        <!-- Upload instructions label -->
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-6 max-w-sm">
+          Drag & drop your transparent PNG or WebP file, or <span class="text-brand-600 font-semibold group-hover:underline">browse files</span>.
+        </p>
+
+        <!-- Supported image format badges -->
+        <div class="inline-flex items-center justify-center flex-wrap gap-2 pt-4 border-t border-slate-100 dark:border-slate-800 w-full max-w-xs mx-auto">
+          <span class="px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">PNG (Transparent)</span>
+          <span class="px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">WEBP (Transparent)</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Active Workspace State Container (Hidden until image load) -->
+    <div id="workspace-state" class="w-full hidden space-y-6">
+      
+      <!-- Manual Cropping Sub-Toolbar (Visible only in Manual Mode) -->
+      <div id="manual-toolbar" class="hidden bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-3 shadow-sm flex flex-wrap items-center justify-between gap-3">
+        <!-- Manual Crop tool switchers group -->
+        <div class="flex items-center space-x-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+          <!-- 8-Handle Box Crop button -->
+          <button id="btn-crop-box" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white text-xs font-bold shadow transition-all flex items-center space-x-1">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+            <span>Box Crop</span>
+          </button>
+          <!-- Polygon Click-to-Point Lasso button -->
+          <button id="btn-crop-polygon" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white text-xs font-bold transition-all flex items-center space-x-1">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5l8-2 8 2v14l-8 2-8-2V5z"/></svg>
+            <span>Polygon Lasso</span>
+          </button>
+          <!-- Freehand Pen Drag Lasso button -->
+          <button id="btn-crop-freehand" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white text-xs font-bold transition-all flex items-center space-x-1">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+            <span>Freehand Pen</span>
+          </button>
+        </div>
+
+        <!-- History control buttons: Undo & Redo -->
+        <div class="flex items-center space-x-1.5">
+          <button id="btn-crop-undo" class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold shadow-sm transition-all disabled:opacity-40" disabled title="Undo Action">
+            ⟲ Undo
+          </button>
+          <button id="btn-crop-redo" class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold shadow-sm transition-all disabled:opacity-40" disabled title="Redo Action">
+            ⟳ Redo
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Slicer View Panel -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 shadow-sm space-y-3.5 w-full">
+        <!-- Canvas toolbar header -->
+        <div class="flex flex-wrap items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 gap-3">
+          <!-- Left side status items -->
+          <div class="flex items-center space-x-3 min-w-0 flex-wrap gap-y-2">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm shrink-0">Canvas Workspace</h3>
+            <span id="sprite-count-text" class="text-xs font-bold text-brand-600 bg-brand-50 dark:bg-slate-800 px-2.5 py-0.5 rounded-full border border-brand-200 dark:border-slate-700 shrink-0">0 Sprites</span>
+            
+            <!-- Output asset file naming prefix input -->
+            <div class="flex items-center space-x-1.5 border-l border-slate-200 dark:border-slate-800 pl-3">
+              <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">Prefix:</span>
+              <input id="project-prefix-input" type="text" value="sprite" class="text-xs font-bold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 w-28 focus:outline-none focus:border-brand-500 transition-all" title="Project Base Prefix" />
+            </div>
+          </div>
+
+          <!-- Right side zoom and reset actions -->
+          <div class="flex items-center space-x-2">
+            <!-- Zoom levels container -->
+            <div class="flex items-center space-x-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+              <button id="btn-zoom-out" class="p-1.5 rounded-lg bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 shadow-sm transition-all" title="Zoom Out">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" /></svg>
+              </button>
+              <span id="zoom-level-text" class="text-[11px] font-bold text-slate-600 dark:text-slate-300 px-1.5 min-w-[36px] text-center">100%</span>
+              <button id="btn-zoom-in" class="p-1.5 rounded-lg bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 shadow-sm transition-all" title="Zoom In">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+              </button>
+              <button id="btn-zoom-fit" class="py-1 px-2 rounded-lg bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-[11px] font-bold shadow-sm transition-all" title="Auto Fit">
+                Fit
+              </button>
+            </div>
+
+            <!-- Clear current canvas and upload state reset button -->
+            <button id="btn-reset" title="Remove Image" class="w-8 h-8 rounded-full bg-red-500 hover:bg-red-600 text-white flex items-center justify-center shadow-md transition-all active:scale-95 text-sm font-bold shrink-0">
+              &times;
+            </button>
+          </div>
+        </div>
+
+        <!-- Canvas Container wrapper with pixel checkerboard pattern background -->
+        <div id="canvas-wrapper" class="w-full bg-checkerboard-light dark:bg-checkerboard-dark rounded-xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-6 flex items-center justify-center min-h-[340px] sm:min-h-[480px] h-[45vh] sm:h-[50vh] max-h-[560px] overflow-hidden relative shadow-inner cursor-crosshair transition-colors duration-200">
+          <!-- Canvas scale container for zoom handling -->
+          <div id="canvas-scaler" class="transition-transform duration-100 ease-out flex items-center justify-center max-w-full max-h-full relative">
+            <canvas id="slicer-canvas" class="rendering-pixelated shadow-sm max-w-full max-h-full object-contain block"></canvas>
+          </div>
+
+          <!-- Crop confirmation floating action card -->
+          <div id="crop-confirm-card" class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 shadow-xl rounded-2xl p-3 hidden items-center space-x-3 z-30">
+            <span id="crop-dimensions-text" class="text-xs font-bold text-slate-700 dark:text-slate-200 pl-1">Selection: 0×0 px</span>
+            <div class="flex items-center space-x-2">
+              <button id="btn-cancel-crop" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold rounded-xl transition-all">✖ Cancel</button>
+              <button id="btn-confirm-crop" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow-md shadow-blue-500/20 transition-all">✔ Confirm & Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slicing Algorithm Tuning Parameters Panel -->
+      <div id="slicing-parameters-card" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 shadow-sm space-y-4 transition-all duration-300">
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm border-b border-slate-100 dark:border-slate-800 pb-2.5">Auto-Slicing Parameters</h3>
+
+        <!-- Responsive grid containing slider controls -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Minimum Sprite Size slider -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between items-center text-xs">
+              <label class="font-semibold text-slate-700 dark:text-slate-300">Min Sprite Size</label>
+              <span id="val-min-size" class="font-bold text-brand-600 bg-brand-50 dark:bg-slate-800 px-2 py-0.5 rounded">12 px</span>
+            </div>
+            <input id="range-min-size" type="range" min="4" max="64" value="12" step="2" />
+          </div>
+
+          <!-- Proximity Gap Merge Threshold slider -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between items-center text-xs">
+              <label class="font-semibold text-slate-700 dark:text-slate-300">Proximity Gap</label>
+              <span id="val-gap" class="font-bold text-brand-600 bg-brand-50 dark:bg-slate-800 px-2 py-0.5 rounded">4 px</span>
+            </div>
+            <input id="range-gap" type="range" min="0" max="32" value="4" step="1" />
+          </div>
+
+          <!-- Outer Padding Margin slider -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between items-center text-xs">
+              <label class="font-semibold text-slate-700 dark:text-slate-300">Padding Margin</label>
+              <span id="val-padding" class="font-bold text-brand-600 bg-brand-50 dark:bg-slate-800 px-2 py-0.5 rounded">2 px</span>
+            </div>
+            <input id="range-padding" type="range" min="0" max="16" value="2" step="1" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Two-column Section: ZIP Package Exporter (Left) and Live Animation Previewer (Right) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Export Package Card -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 shadow-sm flex flex-col justify-between space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2.5">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Export Package</h3>
+            <span class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Flat ZIP • EXIF Stripped</span>
+          </div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed py-2">
+            Download your extracted sprite sequence as <code class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-1.5 py-0.5 rounded font-mono font-bold">pixelslice_pro.zip</code>. All EXIF metadata is cleaned and files are ordered flat sequentially.
+          </div>
+          <!-- Download ZIP Action Button -->
+          <button id="btn-export-zip" class="w-full py-3 px-4 bg-brand-600 hover:bg-brand-700 active:scale-[0.98] text-white font-bold text-xs rounded-xl shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center space-x-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span>Export Package (.zip)</span>
+          </button>
+        </div>
+
+        <!-- Mini Live Animation Previewer Card -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 shadow-sm flex flex-col justify-between space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2.5">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Mini Animation Previewer</h3>
+            <div class="flex items-center space-x-2">
+              <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">FPS:</span>
+              <input id="anim-fps-input" type="number" min="1" max="60" value="12" class="text-xs font-bold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-0.5 w-14 text-center focus:outline-none focus:border-brand-500" />
+            </div>
+          </div>
+
+          <!-- Animation Playback Canvas Viewport -->
+          <div class="flex items-center justify-center bg-checkerboard-light dark:bg-checkerboard-dark rounded-xl border border-slate-200 dark:border-slate-800 h-28 relative overflow-hidden p-2">
+            <canvas id="anim-preview-canvas" class="rendering-pixelated max-h-full max-w-full object-contain"></canvas>
+            <div id="anim-empty-text" class="absolute text-slate-400 dark:text-slate-500 text-xs font-medium">No frames to preview</div>
+          </div>
+
+          <!-- Play / Pause Animation Loop Button -->
+          <button id="btn-anim-play" class="w-full py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl transition-all flex items-center justify-center space-x-2">
+            <svg id="anim-play-icon" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg id="anim-pause-icon" class="w-4 h-4 fill-current hidden" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+            <span id="anim-play-text">Play Animation</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Extracted Sprites Gallery Section -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 shadow-sm space-y-4">
+        <!-- Gallery Header -->
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+          <div class="flex items-center space-x-2">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Extracted Sprites Gallery</h3>
+            <span id="gallery-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">0 items</span>
+          </div>
+        </div>
+        
+        <!-- Dynamic gallery grid target element -->
+        <div id="sprites-gallery" class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3 max-h-[440px] overflow-y-auto no-scrollbar p-1">
+          <div class="col-span-full py-12 text-center text-slate-400 dark:text-slate-500 text-xs font-medium">No sprites extracted yet.</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer Bar with Developer Attribution and Legal Links -->
+  <footer class="w-full border-t border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-[1200px] mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 PixelSlice Pro. Developed by <span class="font-bold text-slate-700 dark:text-slate-200">KernelVoltage</span>.</p>
+      <div class="flex items-center space-x-4 font-medium">
+        <a href="privacy.html" class="hover:text-brand-600 transition-colors">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-brand-600 transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script link pointing to core application logic file -->
+  <script src="script.js"></script>
+</body>
+</html>
