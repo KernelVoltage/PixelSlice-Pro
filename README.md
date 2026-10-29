@@ -1,7 +1,5 @@
 <div align="center">
 
-  <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=200&auto=format&fit=crop" width="80" alt="Logo" style="border-radius: 16px;" />
-
   # ⚡ PixelSlice Pro
   ### **100% Free, Browser-Based Sprite Sheet Cutter, Polygon Lasso Cropper & Animation Previewer**
 
@@ -38,7 +36,7 @@
 
 ---
 
-## 👤 Author
+## 👨🏼‍💻 Author
 Developed with ❤️ by **KernelVoltage** ([@KernelVoltage](https://github.com/KernelVoltage)).
 
 ## 📄 License
