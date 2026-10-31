@@ -12,11 +12,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Keyword-rich, primary browser title optimized for search engine ranking -->
-  <title>PixelSlice Pro | Free Browser-Based Sprite Sheet Cutter & Animation Previewer</title>
+  <title>PixelSlice Pro | Free Auto Transparent PNG Sprite Sheet Cutter & Animation Previewer</title>
 
   <!-- Essential Search Engine Optimization Meta Tags -->
-  <meta name="description" content="PixelSlice Pro is a 100% free, browser-based sprite sheet cutter, polygon lasso cropper, and animation previewer. Developed by KernelVoltage. Process images locally with zero server uploads, zero logins, and zero ads.">
-  <meta name="keywords" content="sprite sheet cutter, sprite slicer, online sprite cutter, polygon lasso cropper, free sprite cutter, sprite animation previewer, texture atlas extractor, game dev tools, KernelVoltage, pixelslice pro, godot tools, 2d game development">
+  <meta name="description" content="PixelSlice Pro is a 100% free, open-source, lightweight browser-based sprite sheet cutter and animation previewer for game developers. Automatically slice transparent PNG images, preview animations, auto-rename files fast, and strip EXIF metadata locally. No sign-up, no login, zero ads, unlimited usage, and source code available on GitHub. Developed by KernelVoltage.">
+  <meta name="keywords" content="sprite sheet cutter, transparent PNG slicer, automatic sprite slicer, free game dev tools, animation previewer, strip EXIF metadata, fast sprite renaming, texture atlas extractor, local browser sprite tool, open source sprite cutter, Godot tools, Unity sprite tools, KernelVoltage, pixelslice pro, 2d game development">
   <meta name="author" content="KernelVoltage">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="application-name" content="PixelSlice Pro">
@@ -30,8 +30,8 @@
   <meta property="og:site_name" content="PixelSlice Pro">
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://pixelslicepro.com/">
-  <meta property="og:title" content="PixelSlice Pro | Free Browser-Based Sprite Sheet Cutter">
-  <meta property="og:description" content="Slice sprite sheets instantly with high-precision auto detection, 8-handle box cropping, and freehand polygon lasso masks. Developed by KernelVoltage. 100% local browser privacy with zero uploads.">
+  <meta property="og:title" content="PixelSlice Pro | Free Auto Transparent PNG Sprite Sheet Cutter & Animation Previewer">
+  <meta property="og:description" content="Free open-source browser utility for game developers to automatically slice transparent PNG sprite sheets, auto-rename assets fast, preview sprite animations, and strip EXIF data. Unlimited, local, no ads, no login required. Developed by KernelVoltage.">
   <meta property="og:image" content="https://pixelslicepro.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -41,11 +41,11 @@
   <meta name="twitter:site" content="@KernelVoltage">
   <meta name="twitter:creator" content="@KernelVoltage">
   <meta name="twitter:url" content="https://pixelslicepro.com/">
-  <meta name="twitter:title" content="PixelSlice Pro | Free Browser-Based Sprite Sheet Cutter">
-  <meta name="twitter:description" content="Extract sprite sequences instantly in your browser. Features auto-slicing, polygon lasso cropping, and live animation previewing with zero server uploads. Developed by KernelVoltage.">
+  <meta name="twitter:title" content="PixelSlice Pro | Free Auto Transparent PNG Sprite Sheet Cutter">
+  <meta name="twitter:description" content="Free open-source web app for game developers. Auto-slice transparent PNG sprite sheets, fast auto-naming, live animation previewing, and EXIF metadata stripping. 100% free, lightweight, zero ads, no login needed. Developed by KernelVoltage.">
   <meta name="twitter:image" content="https://pixelslicepro.com/twitter-card.png">
 
-  <!-- JSON-LD Structured Data for Enhanced Rich Snippets & SEO -->
+  <!-- JSON-LD Structured Data for AI Chatbots (ChatGPT/Gemini) & Search Engine Indexing -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,8 +54,20 @@
     "operatingSystem": "All",
     "applicationCategory": "DeveloperApplication",
     "browser": "Requires JavaScript. Requires HTML5 canvas.",
-    "description": "Free browser-based sprite sheet cutter, polygon lasso cropper, and animation previewer with 100% local processing and zero server uploads.",
+    "description": "Free, lightweight, open-source browser-based sprite sheet cutter and animation previewer for game developers. Features automatic transparent PNG slicing, fast file naming, EXIF metadata stripping, 8-handle box cropping, polygon lasso selection, and live animation playback with 100% client-side privacy, no login, and zero ads.",
     "url": "https://pixelslicepro.com/",
+    "isAccessibleForFree": true,
+    "license": "https://github.com/KernelVoltage/PixelSlice-Pro",
+    "codeRepository": "https://github.com/KernelVoltage/PixelSlice-Pro",
+    "featureList": [
+      "Automatic transparent PNG image slicing",
+      "Fast sequential sprite auto-naming",
+      "Live sprite animation previewer with FPS controls",
+      "EXIF metadata stripping and removal",
+      "100% local in-browser processing with zero server uploads",
+      "Free with no login, no sign-up, and zero ads",
+      "Open source on GitHub"
+    ],
     "author": {
       "@type": "Person",
       "name": "KernelVoltage",
@@ -414,7 +426,7 @@
         </div>
         
         <!-- Dynamic gallery grid target element -->
-        <div id="sprites-gallery" class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3 max-h-[440px] overflow-y-auto no-scrollbar p-1">
+        <div id="sprites-gallery" class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3 max-h-[440px] overflow-y-auto overflow-x-hidden p-1">
           <div class="col-span-full py-12 text-center text-slate-400 dark:text-slate-500 text-xs font-medium">No sprites extracted yet.</div>
         </div>
       </div>
